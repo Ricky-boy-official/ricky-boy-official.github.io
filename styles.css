@@ -76,3 +76,24 @@ footer {
   font-size: 0.9rem;
   color: #555;
 }
+/* --- New Styling for Key Technologies Section --- */
+
+.tech-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows skills to wrap on smaller screens */
+    gap: 10px; /* Space between the skill items */
+}
+
+.tech-list li {
+    background-color: #E8F5E9; /* Light green/secondary color */
+    color: #333; /* Dark text */
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border: 1px solid #ccc; /* Light border for definition */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
