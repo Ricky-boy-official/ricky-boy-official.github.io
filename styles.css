@@ -152,8 +152,8 @@ h2 {
 }
 
 .project-icon {
-    font-size: 2rem;
     margin-bottom: 1rem;
+    color: var(--accent);
 }
 
 .project-card h3 {
@@ -229,4 +229,4 @@ footer {
 @media (max-width: 768px) {
     .glass-card { padding: 2rem; }
     h2 { font-size: 2rem; }
-}
+        }
