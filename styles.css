@@ -183,10 +183,13 @@ h2 {
 .apple-link {
     color: var(--accent);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 4vw, 1.2rem); /* Smoothly shrinks font on small phones */
     display: block;
     margin-bottom: 1rem;
+    overflow-wrap: break-word; /* Forces the long email to stay inside the glass */
+    word-break: break-word;
 }
+
 
 .apple-link:hover {
     text-decoration: underline;
