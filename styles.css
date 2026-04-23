@@ -1,145 +1,141 @@
-/* Apple UI Premium Dark Theme */
+/* --- Global Variables & Reset --- */
 :root {
-    --bg-color: #000000;
-    --text-main: #f5f5f7;
-    --text-muted: #a1a1a6;
-    --glass-bg: rgba(255, 255, 255, 0.05);
+    --bg: #000000;
+    --text: #ffffff;
+    --text-muted: #888888;
+    --accent: #ffffff;
+    --glass-bg: rgba(30, 30, 30, 0.4);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --accent: #2997ff;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Glass Navigation */
+/* --- Navigation & Header --- */
 .glass-nav {
     position: fixed;
     top: 0;
     width: 100%;
+    padding: 1.5rem 0;
+    z-index: 100;
     background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--glass-border);
-    z-index: 1000;
 }
 
 .nav-content {
-    max-width: 980px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 2rem;
 }
 
 .logo {
-    font-weight: 700;
-    letter-spacing: -0.5px;
     font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .links a {
-    color: var(--text-muted);
+    color: var(--text);
     text-decoration: none;
-    margin-left: 2rem;
     font-size: 0.9rem;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s;
 }
 
 .links a:hover {
-    color: var(--text-main);
+    opacity: 0.7;
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 0 2rem;
-    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
 }
 
-h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
 }
 
 .subtitle {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-size: clamp(1rem, 3vw, 1.5rem);
     color: var(--text-muted);
-    margin-bottom: 2rem;
-    font-weight: 400;
+    margin-bottom: 2.5rem;
 }
 
 .apple-btn {
     display: inline-block;
-    background-color: var(--text-main);
-    color: var(--bg-color);
     padding: 12px 24px;
-    border-radius: 980px;
+    background: var(--text);
+    color: var(--bg);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: transform 0.3s;
 }
 
 .apple-btn:hover {
     transform: scale(1.05);
-    opacity: 0.9;
 }
 
-/* Sections & Glass Cards */
+/* --- Core Layout & Glass Cards --- */
 section {
-    padding: 6rem 2rem;
-    max-width: 980px;
-    margin: 0 auto;
+    padding: 100px 2rem;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    letter-spacing: -0.01em;
+.section-container {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .glass-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    border-radius: 24px;
+    border-radius: 20px;
     padding: 3rem;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.glass-card p {
-    color: var(--text-muted);
-    font-size: 1.1rem;
+h2 {
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
 }
 
-.glass-card p strong {
-    color: var(--text-main);
-}
-
-/* Projects Grid */
+/* --- Projects Section --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
 .project-card {
@@ -163,6 +159,7 @@ h2 {
 
 .project-card p {
     font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 }
 
 .tag {
@@ -175,7 +172,7 @@ h2 {
     color: var(--text-muted);
 }
 
-/* Contact */
+/* --- Contact Section --- */
 .contact-card {
     text-align: center;
 }
@@ -183,13 +180,12 @@ h2 {
 .apple-link {
     color: var(--accent);
     text-decoration: none;
-    font-size: clamp(0.9rem, 4vw, 1.2rem); /* Smoothly shrinks font on small phones */
+    font-size: clamp(0.9rem, 4vw, 1.2rem); 
     display: block;
     margin-bottom: 1rem;
-    overflow-wrap: break-word; /* Forces the long email to stay inside the glass */
+    overflow-wrap: break-word; 
     word-break: break-word;
 }
-
 
 .apple-link:hover {
     text-decoration: underline;
@@ -198,6 +194,7 @@ h2 {
 .phone {
     margin-top: 2rem;
     font-size: 0.9rem !important;
+    color: var(--text-muted);
 }
 
 footer {
@@ -208,7 +205,7 @@ footer {
     border-top: 1px solid var(--glass-border);
 }
 
-/* Animations */
+/* --- Animations --- */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -232,72 +229,82 @@ footer {
 @media (max-width: 768px) {
     .glass-card { padding: 2rem; }
     h2 { font-size: 2rem; }
-        }
+}
 
-/* --- iOS 3-Dot Menu Styles --- */
+/* =========================================
+   NEW: iOS 3-DOT RESUME MENU STYLES
+   ========================================= */
+
 .ios-menu-wrapper {
-    position: absolute; /* Keeps it floating at the top right */
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+    position: relative; 
+    display: inline-block;
+    margin-left: 15px; 
 }
 
-/* The 3-Dot Button */
+/* The Clean 3-Dot Button */
 .ios-menu-btn {
-    background: rgba(0, 122, 255, 0.15); /* Apple System Blue tinted background */
-    color: #007aff; /* Apple System Blue text */
-    border: 1px solid rgba(0, 122, 255, 0.3);
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 1.2rem;
+    background: transparent;
+    color: #007aff; /* Apple System Blue */
+    border: none;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
     cursor: pointer;
-    backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
+    padding: 0 5px;
+    transition: transform 0.15s ease;
+    outline: none;
 }
 
-.ios-menu-btn:hover {
-    background: rgba(0, 122, 255, 0.3);
+/* Slight bounce when tapped */
+.ios-menu-btn:active {
+    transform: scale(0.85);
 }
 
 /* The Glass Dropdown Menu */
 .ios-dropdown {
     position: absolute;
-    top: 45px;
+    top: 35px; /* Sits cleanly below the nav bar */
     right: 0;
-    display: none; /* Hidden until clicked */
+    display: none; 
     flex-direction: column;
-    width: 180px;
-    padding: 10px;
-    border-radius: 16px;
+    width: 170px;
+    padding: 8px;
+    border-radius: 14px;
     text-align: left;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform-origin: top right;
 }
 
-/* The smooth fade-in animation */
+/* The Spring-Loaded Pop Animation */
 .ios-dropdown.show {
     display: flex;
-    animation: dropDownFade 0.2s ease-out forwards;
+    animation: popBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-.ios-dropdown a {
-    color: var(--accent); /* Uses your existing white text color */
+@keyframes popBounce {
+    0% { opacity: 0; transform: scale(0.6) translateY(-15px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Menu Items with SVGs */
+.ios-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--accent);
     text-decoration: none;
-    padding: 12px 10px;
-    font-size: 0.95rem;
+    padding: 10px 8px;
+    font-size: 0.9rem;
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: color 0.2s;
+    transition: all 0.2s;
+    border-radius: 8px;
 }
 
-.ios-dropdown a:last-child {
+.ios-item:last-child {
     border-bottom: none;
 }
 
-.ios-dropdown a:hover {
+.ios-item:hover {
     color: #007aff;
-}
-
-@keyframes dropDownFade {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+    background: rgba(255,255,255,0.05);
+    }
+    
