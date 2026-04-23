@@ -5,7 +5,7 @@ A premium, custom-built personal portfolio website designed to showcase my softw
 ## Live Site
 [ejiro-dev.github.io](https://ejiro-dev.github.io/)
 
-## 🛠️ Built With
+## Built With
 * **HTML5** (Semantic structure)
 * **CSS3** (Custom variables, responsive clamp typing, liquid glass UI styling, and cubic-bezier animations)
 * **JavaScript** (Intersection Observers for scroll animations and dynamic DOM manipulation)
