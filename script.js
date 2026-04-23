@@ -23,3 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 });
+
+// iOS Menu Toggle Logic
+const iosBtn = document.getElementById('ios-menu-btn');
+const iosDropdown = document.getElementById('ios-dropdown');
+
+// Toggle menu on click
+iosBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevents the click from instantly closing it
+    iosDropdown.classList.toggle('show');
+});
+
+// Close menu if user clicks anywhere else on the screen
+document.addEventListener('click', (e) => {
+    if (!iosDropdown.contains(e.target) && iosDropdown.classList.contains('show')) {
+        iosDropdown.classList.remove('show');
+    }
+});
