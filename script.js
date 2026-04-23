@@ -1,42 +1,43 @@
-// Intersection Observer for Apple-style scroll animations (Repeating)
-document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
+// --- Scroll Animation Logic ---
+// This makes your sections smoothly fade in when they appear on screen
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+};
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Fade in when scrolling into view
-                entry.target.classList.add('visible');
-            } else {
-                // Remove the class when it leaves the screen so it animates again next time!
-                entry.target.classList.remove('visible');
-            }
-        });
-    }, observerOptions);
-
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(element => {
-        observer.observe(element);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            // Allows the animation to repeat if you scroll back up
+            entry.target.classList.remove('visible'); 
+        }
     });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(element => {
+    observer.observe(element);
 });
 
-// iOS Menu Toggle Logic
+
+// --- iOS Resume Menu Logic ---
+// This handles the pop-up behavior of your 3-dot menu
 const iosBtn = document.getElementById('ios-menu-btn');
 const iosDropdown = document.getElementById('ios-dropdown');
 
-// Toggle menu on click
-iosBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevents the click from instantly closing it
-    iosDropdown.classList.toggle('show');
-});
+if (iosBtn && iosDropdown) {
+    // Toggle menu when clicking the dots
+    iosBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Stops the click from instantly closing the menu
+        iosDropdown.classList.toggle('show');
+    });
 
-// Close menu if user clicks anywhere else on the screen
-document.addEventListener('click', (e) => {
-    if (!iosDropdown.contains(e.target) && iosDropdown.classList.contains('show')) {
-        iosDropdown.classList.remove('show');
-    }
-});
+    // Close the menu if the user taps anywhere else on the screen
+    document.addEventListener('click', (e) => {
+        if (!iosDropdown.contains(e.target) && iosDropdown.classList.contains('show')) {
+            iosDropdown.classList.remove('show');
+        }
+    });
+                              }
